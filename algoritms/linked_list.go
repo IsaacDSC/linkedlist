@@ -2,22 +2,22 @@ package algoritms
 
 import "fmt"
 
-type Node struct {
-	value int
-	next  *Node
+type Node[T comparable] struct {
+	value T
+	next  *Node[T]
 }
 
-type LinkedList struct {
-	head *Node
+type LinkedList[T comparable] struct {
+	head *Node[T]
 }
 
-func (l *LinkedList) Unshift(value int) {
-	node := &Node{value, l.head}
+func (l *LinkedList[T]) Unshift(value T) {
+	node := &Node[T]{value, l.head}
 	l.head = node
 }
 
-func (l *LinkedList) Append(value int) {
-	node := &Node{value, nil}
+func (l *LinkedList[T]) Append(value T) {
+	node := &Node[T]{value, nil}
 	if l.head == nil {
 		l.head = node
 		return
@@ -29,13 +29,13 @@ func (l *LinkedList) Append(value int) {
 	head.next = node
 }
 
-func (l *LinkedList) AppendOnIndex(value int, index int) {
+func (l *LinkedList[T]) AppendOnIndex(value T, index int) {
 	if index == 0 {
 		l.Unshift(value)
 		return
 	}
 
-	node := &Node{value, nil}
+	node := &Node[T]{value, nil}
 	actual := l.head
 	for i := 0; actual != nil && i < index-1; i++ {
 		actual = actual.next
@@ -50,7 +50,7 @@ func (l *LinkedList) AppendOnIndex(value int, index int) {
 	actual.next = node
 }
 
-func (l *LinkedList) Search(value int) (int, bool) {
+func (l *LinkedList[T]) Search(value T) (int, bool) {
 	head := l.head
 	index := 0
 	for head != nil {
@@ -63,9 +63,9 @@ func (l *LinkedList) Search(value int) (int, bool) {
 	return -1, false
 }
 
-func (l *LinkedList) Delete(value int) bool {
+func (l *LinkedList[T]) Delete(value T) bool {
 	current := l.head
-	var anterior *Node
+	var anterior *Node[T]
 
 	for current != nil {
 		if current.value == value {
@@ -82,10 +82,10 @@ func (l *LinkedList) Delete(value int) bool {
 	return false
 }
 
-func (l *LinkedList) Debug() {
+func (l *LinkedList[T]) Debug() {
 	head := l.head
 	for head != nil {
-		fmt.Printf("%d -> ", head.value)
+		fmt.Printf("%v -> ", head.value)
 		head = head.next
 	}
 	fmt.Println("nil")

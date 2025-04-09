@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	list := algoritms.LinkedList{}
+	list := algoritms.LinkedList[int]{}
 
 	list.Append(10)
 	list.Unshift(5)
