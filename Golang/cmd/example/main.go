@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"linkedlist/algoritms"
+	"linkedlist/Golang/algoritms"
 )
 
 func main() {

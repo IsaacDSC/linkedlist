@@ -1,7 +1,7 @@
 package main
 
 import (
-	"linkedlist/algoritms"
+	"linkedlist/Golang/algoritms"
 	"os"
 	"runtime"
 	"runtime/pprof"
