@@ -116,7 +116,8 @@ Realizamos testes de benchmark comparando a eficiência de listas encadeadas e s
 ### Conclusões Principais:
 - **Lista Encadeada** é superior para inserções no início (Unshift) e inserções em posições específicas
 - **Slice** é superior para a maioria das outras operações, especialmente para acesso direto e append
-- Para detalhes completos, veja o [comparativo detalhado](comparativo.md)
+- Para detalhes completos, veja o [comparativo detalhado](./Golang/comparativo.md)
+[comparativo detalhado em español](./Golang/comparativo_es.md)
 
 ## Como Executar
 
