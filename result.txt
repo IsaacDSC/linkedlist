@@ -1,0 +1,20 @@
+goos: darwin
+goarch: arm64
+pkg: linkedlist
+cpu: Apple M1
+BenchmarkLinkedListWrite-8           	  210421	    113534 ns/op
+BenchmarkSliceWrite-8                	100000000	        21.17 ns/op
+BenchmarkLinkedListRead-8            	 1898684	       807.2 ns/op
+BenchmarkSliceRead-8                 	1000000000	         0.6539 ns/op
+BenchmarkLinkedListUnshift-8         	33922062	        51.22 ns/op
+BenchmarkSliceUnshift-8              	  211600	     75649 ns/op
+BenchmarkLinkedListAppend-8          	  177764	     90371 ns/op
+BenchmarkSliceAppend-8               	100000000	        14.02 ns/op
+BenchmarkLinkedListAppendOnIndex-8   	 2448194	       487.2 ns/op
+BenchmarkSliceAppendOnIndex-8        	 1517146	       772.5 ns/op
+BenchmarkLinkedListSearch-8          	 2228211	       535.0 ns/op
+BenchmarkSliceSearch-8               	 3898449	       310.1 ns/op
+BenchmarkLinkedListDelete-8          	1000000000	         0.6428 ns/op
+BenchmarkSliceDelete-8               	1000000000	         0.3203 ns/op
+PASS
+ok  	linkedlist	72.664s
