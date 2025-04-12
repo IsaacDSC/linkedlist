@@ -34,10 +34,9 @@ func (l *LinkedList[T]) Append(value T) {
 	l.size++
 }
 
-func (l *LinkedList[T]) AppendOnIndex(value T, index int) {
+func (l *LinkedList[T]) AppendOnIndex(value T, index int) error {
 	if index < 0 || index > l.size {
-		fmt.Println("Posição inválida")
-		return
+		return fmt.Errorf("invalid index: %d", index)
 	}
 
 	if index == 0 {
