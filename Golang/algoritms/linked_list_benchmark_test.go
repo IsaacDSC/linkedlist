@@ -155,7 +155,9 @@ func BenchmarkLinkedList_Delete_Beginning(b *testing.B) {
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		// Restaura a lista ao estado inicial
+		// Restaura a lista ao estado inicial usando cópia superficial
+		// NOTA: Usamos cópia superficial em vez de DeepCopy por razões de performance no benchmark.
+		// Em um contexto real de aplicação, DeepCopy seria mais apropriado para evitar efeitos colaterais.
 		list := originalList
 		list.head = originalList.head
 		list.size = originalList.size
