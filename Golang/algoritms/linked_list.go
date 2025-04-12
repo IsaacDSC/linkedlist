@@ -41,12 +41,12 @@ func (l *LinkedList[T]) AppendOnIndex(value T, index int) error {
 
 	if index == 0 {
 		l.Unshift(value)
-		return
+		return nil
 	}
 
 	if index == l.size {
 		l.Append(value)
-		return
+		return nil
 	}
 
 	node := &Node[T]{value, nil}
@@ -58,6 +58,8 @@ func (l *LinkedList[T]) AppendOnIndex(value T, index int) error {
 	node.next = actual.next
 	actual.next = node
 	l.size++
+
+	return nil
 }
 
 func (l *LinkedList[T]) Search(value T) (int, bool) {
