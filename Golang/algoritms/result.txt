@@ -1,0 +1,102 @@
+
+=== Comparação de Recursos: Inserção no Início ===
+Estrutura       | Tempo           | Memória Total   | Alocações      
+LinkedList      | 569.625µs       | 161.47 KB       | 10006          
+Slice           | 48.763917ms     | 408.76 MB       | 20076          
+
+Comparação (LinkedList/Slice):
+Tempo: 0.01x mais eficiente
+Memória: 0.00x mais eficiente
+
+
+=== Comparação de Recursos: Inserção no Final ===
+Estrutura       | Tempo           | Memória Total   | Alocações      
+LinkedList      | 308.959µs       | 156.25 KB       | 10000          
+Slice           | 26.584µs        | 349.25 KB       | 19             
+
+Comparação (LinkedList/Slice):
+Tempo: 11.62x menos eficiente
+Memória: 0.45x mais eficiente
+
+
+=== Comparação de Recursos: Inserção no Meio ===
+Estrutura       | Tempo           | Memória Total   | Alocações      
+LinkedList      | 1.060417ms      | 157.81 KB       | 10100          
+Slice           | 400.042µs       | 4.09 MB         | 102            
+
+Comparação (LinkedList/Slice):
+Tempo: 2.65x menos eficiente
+Memória: 0.04x mais eficiente
+
+
+=== Comparação de Recursos: Busca por Valor ===
+Estrutura       | Tempo           | Memória Total   | Alocações      
+LinkedList      | 18.86775ms      | 156.25 KB       | 10000          
+Slice           | 3.863541ms      | 80.00 KB        | 1              
+
+Comparação (LinkedList/Slice):
+Tempo: 4.88x menos eficiente
+Memória: 1.95x menos eficiente
+
+
+=== Comparação de Recursos: Busca por Índice ===
+Estrutura       | Tempo           | Memória Total   | Alocações      
+LinkedList      | 49.70425ms      | 156.25 KB       | 10000          
+Slice           | 9.375µs         | 80.00 KB        | 1              
+
+Comparação (LinkedList/Slice):
+Tempo: 5301.79x menos eficiente
+Memória: 1.95x menos eficiente
+
+
+=== Comparação de Recursos: Remoção do Início ===
+Estrutura       | Tempo           | Memória Total   | Alocações      
+LinkedList      | 187.709µs       | 156.25 KB       | 10000          
+Slice           | 5.125µs         | 80.00 KB        | 1              
+
+Comparação (LinkedList/Slice):
+Tempo: 36.63x menos eficiente
+Memória: 1.95x menos eficiente
+
+
+=== Comparação de Recursos: Remoção do Meio ===
+Estrutura       | Tempo           | Memória Total   | Alocações      
+LinkedList      | 9.781708ms      | 156.25 KB       | 10000          
+Slice           | 519.625µs       | 80.00 KB        | 1              
+
+Comparação (LinkedList/Slice):
+Tempo: 18.82x menos eficiente
+Memória: 1.95x menos eficiente
+
+
+=== Impacto das Otimizações ===
+Implementação        | Tempo           | Memória Total   | Alocações      
+Com tail             | 186µs           | 156.25 KB       | 10000          
+Sem tail             | 58.996ms        | 156.25 KB       | 10000          
+
+Melhoria de performance: 317.18x mais rápido com otimizações
+
+goos: darwin
+goarch: arm64
+pkg: linkedlist/Golang/algoritms
+cpu: Apple M1
+BenchmarkLinkedList_Unshift-8               	43936395	        34.05 ns/op	      16 B/op	       1 allocs/op
+BenchmarkSlice_Unshift-8                    	  353605	     85263 ns/op	 1418494 B/op	       2 allocs/op
+BenchmarkLinkedList_Append-8                	46755219	        30.51 ns/op	      16 B/op	       1 allocs/op
+BenchmarkSlice_Append-8                     	100000000	        18.50 ns/op	      45 B/op	       0 allocs/op
+BenchmarkLinkedList_AppendOnIndex_Small-8   	17474348	        63.22 ns/op	      16 B/op	       1 allocs/op
+BenchmarkSlice_InsertMiddle_Small-8         	  272499	     57466 ns/op	  549447 B/op	       1 allocs/op
+BenchmarkLinkedList_AppendOnIndex_Large-8   	  251157	      4820 ns/op	      16 B/op	       1 allocs/op
+BenchmarkSlice_InsertMiddle_Large-8         	  216792	     46960 ns/op	  477730 B/op	       1 allocs/op
+BenchmarkLinkedList_Search-8                	 1000000	      1050 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlice_Search-8                     	 3672192	       327.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLinkedList_FindByIndex-8           	 2706890	       443.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlice_GetByIndex-8                 	1000000000	         0.3210 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLinkedList_Delete_Beginning-8      	751307942	         1.598 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlice_Delete_Beginning-8           	1000000000	         0.3196 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLinkedList_Delete_Middle-8         	 1000000	      1051 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlice_Delete_Middle-8              	22755195	        52.65 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLinkedList_AppendOptimized-8       	39264927	        37.01 ns/op	      16 B/op	       1 allocs/op
+BenchmarkLinkedList_AppendNonOptimized-8    	  200869	    102227 ns/op	      16 B/op	       1 allocs/op
+PASS
+ok  	linkedlist/Golang/algoritms	96.251s
